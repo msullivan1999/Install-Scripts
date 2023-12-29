@@ -46,11 +46,9 @@ sudo touch /etc/snort/snort.conf
 #set up demo using ICMP to test snort
 sudo chmod
 sudo chmod 777 /etc/snort/snort.conf
+
+#snort config file will need to be modified
 cp /Documents/"Installation Scripts"/snort.conf /etc/snort/snort.conf
-echo "include /etc/snort/rules/icmp.rules" > /etc/snort/snort.conf
-sudo touch /etc/snort/rules/icmp.rules
-sudo chmod 777 /etc/snort/rules/icmp.rules
-echo "alert icmp any any -> any any (msg:"ICMP Packet"; sid:477; rev:1;)" > /etc/snort/rules/icmp.rules
 
 #execute snort for the ICMP rule
 snort -c /etc/snort/snort.conf -l /var/log/snort/
